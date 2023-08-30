@@ -32,6 +32,7 @@ clear all
 close all
 clc
 warning('off')            % use if you want to turn warnings off
+pkg load image            % load package to draw circles on a plot
 
 % =============== PARAMETERS ===============
 % - PHYSICAL -
@@ -173,6 +174,14 @@ end
 % - PLOT MESH REFINMENT POINTS IN CORES' CROSS-SECTIONS -
 figure(2)
 plot (x_tab,y_tab,'ob')
+viscircles([x0(1) y0(1);x0(2) y0(2)],[R*1e3 R*1e3],'linewidth',2,'Color','k')
+hold on
+plot (x_tab,y_tab,'ob')
+set(gca,'fontsize',24);
+xlabel('{\it x (mm)}');
+ylabel('{\it y (mm)}');
+grid;
+hold off
 
 % ========= GENERATE MSZ MESH FILE =========
 % - FILE INITIALIZATION -
